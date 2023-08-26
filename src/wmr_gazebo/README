@@ -1,0 +1,12 @@
+## 机器人模型
+urdf目录下的xacro文件，集成了松灵机器人ranger_mini2系列机器人的模型==ranger_base.xacro==，以及轮式机器人底盘各关节的控制器和gazebo控制器插件配置文件==ranger.gazebo.xacro==,双目深度相机(ZED)的模型文件==ranger_camera.xacro==，以及其驱动文件==camera.gazebo.xacro==。
+
+## 地形文件
+worlds目录下
+
+## config文件-roscontrol
+ros_control对机器人底盘各关节的控制器参数，优先级高于xacro，但必须加载xacro才能正常的加载控制器参数
+
+## meshes文件-机器人外观文件/地形纹理文件
+如果新导入机器人模型，需要将solidworks生成的功能包中的meshes内容复制并替换，并修改urdf中加载meshes的路径为此功能包中的路径。
+如果是新型号的机器人模型，请在meshes中新建文件夹来保存外观/纹理文件(STL文件)，并执行上述步骤；==NOTE==:还请为原有的机器人外观文件新建文件夹，进行保存，并修改对应urdf文件夹中的xacro文件中STL文件的路径。

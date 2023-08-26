@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="ranger" xmlns:xacro="http://wiki.ros.org/xacro">
+<xacro:include filename="$(find wmr_gazebo)/urdf/xacro/ranger_base.xacro" /> 
+<xacro:include filename="$(find wmr_gazebo)/urdf/xacro/ranger_camera.xacro" /> 
+<xacro:include filename="$(find wmr_gazebo)/urdf/xacro/ranger_imu.xacro" /> 
+</robot>

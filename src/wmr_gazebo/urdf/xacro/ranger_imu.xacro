@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="ranger" xmlns:xacro="http://wiki.ros.org/xacro">
+<xacro:include filename="$(find wmr_gazebo)/urdf/xacro/box_collision.xacro" /> 
+<xacro:include filename="$(find wmr_gazebo)/urdf/xacro/imu.gazebo.xacro" /> 
+
+<link
+    name="imu_Link">
+    <inertial>
+      <origin
+        xyz="-0.012638 0.0014791 -0.0055714"
+        rpy="0 0 0" />
+      <mass
+        value="0.17432" />
+      <inertia
+        ixx="0.00040093"
+        ixy="-1.0787E-07"
+        ixz="-4.4069E-07"
+        iyy="2.9624E-05"
+        iyz="-2.1518E-08"
+        izz="0.00040457" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.02 0.05 0.02" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.02 0.05 0.02" />
+      </geometry>
+    </collision>
+    <xacro:Box_inertial_matrix m="0.015" l="0.02" w="0.05" h="0.02" />
+  </link>
+  <joint
+    name="imu_joint"
+    type="fixed">
+    <origin
+      xyz="-0.012638 -0.0023266 0.23136"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+</robot>

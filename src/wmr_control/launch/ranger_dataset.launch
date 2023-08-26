@@ -1,0 +1,7 @@
+<launch>
+
+    <include file="$(find wmr_control)/launch/display/ranger_gazebo.launch" />
+    <!-- <node pkg="CNNDataSet" type="DataSet_node" name="DataSet_node" /> -->
+    <node pkg="cnn_dataset" type="data_set" name="data_set" />
+
+</launch>

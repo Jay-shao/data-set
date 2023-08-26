@@ -1,0 +1,10 @@
+float64 linearx
+float64 lineary
+float64 linearz
+float64 angularx
+float64 angulary
+float64 angularz
+float64 angle
+
+---
+bool flag

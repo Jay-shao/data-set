@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="ranger" xmlns:xacro="http://wiki.ros.org/xacro">
+
+<link
+    name="laser_Link">
+    <inertial>
+      <origin
+        xyz="-1.7347E-18 3.3307E-16 -0.038166"
+        rpy="0 0 0" />
+      <mass
+        value="0.59887" />
+      <inertia
+        ixx="0.00066548"
+        ixy="0"
+        ixz="-7.152E-34"
+        iyy="0.00066548"
+        iyz="-7.1306E-19"
+        izz="0.00074615" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/laser_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/laser_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="laser_joint"
+    type="fixed">
+    <origin
+      xyz="0.0045517 -0.0020357 0.318"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="laser_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+</robot>

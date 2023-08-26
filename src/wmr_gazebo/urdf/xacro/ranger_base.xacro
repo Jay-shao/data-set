@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter --> 
+<robot name="ranger" xmlns:xacro="http://wiki.ros.org/xacro">
+
+<xacro:include filename="$(find wmr_gazebo)/urdf/xacro/ranger.gazebo.xacro" />
+
+  <link name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0015289 -0.0044553 0.17469"
+        rpy="0 0 0" />
+      <mass
+        value="2.0296" />
+      <inertia
+        ixx="0.023373"
+        ixy="-8.3647E-09"
+        ixz="-4.6215E-08"
+        iyy="0.060673"
+        iyz="1.4445E-06"
+        izz="0.081959" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+<link
+    name="lf_Link">
+    <inertial>
+      <origin
+        xyz="-0.014241 -0.059222 -0.061218"
+        rpy="0 0 0" />
+      <mass
+        value="0.24676" />
+      <inertia
+        ixx="0.00021007"
+        ixy="-6.2343E-06"
+        ixz="1.4453E-05"
+        iyy="0.00016189"
+        iyz="-5.8466E-06"
+        izz="0.00017343" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/lf_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/lf_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lf_joint"
+    type="revolute">
+    <origin
+      xyz="0.247 0.18204 0.12"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lf_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="1000"
+      velocity="1" />
+  </joint>
+  <link
+    name="wheel_lf_Link">
+    <inertial>
+      <origin
+        xyz="-9.2845E-07 -0.050321 -2.1397E-06"
+        rpy="0 0 0" />
+      <mass
+        value="2.2786" />
+      <inertia
+        ixx="0.0063629"
+        ixy="-1.6134E-07"
+        ixz="-2.2395E-07"
+        iyy="0.010465"
+        iyz="-3.6995E-07"
+        izz="0.0063626" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/wheel_lf_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/wheel_lf_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_lf_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0019433 0.053992 -0.1268"
+      rpy="0 0 0" />
+    <parent
+      link="lf_Link" />
+    <child
+      link="wheel_lf_Link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="rf_Link">
+    <inertial>
+      <origin
+        xyz="-0.014188 0.058621 -0.060479"
+        rpy="0 0 0" />
+      <mass
+        value="0.24759" />
+      <inertia
+        ixx="0.00020993"
+        ixy="6.2337E-06"
+        ixz="1.4517E-05"
+        iyy="0.00016172"
+        iyz="5.8459E-06"
+        izz="0.0001734" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/rf_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/rf_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rf_joint"
+    type="revolute">
+    <origin
+      xyz="0.24699 -0.18196 0.12"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rf_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="1000"
+      velocity="1" />
+  </joint>
+  <link
+    name="wheel_rf_Link">
+    <inertial>
+      <origin
+        xyz="-9.3868E-07 0.050321 -2.1352E-06"
+        rpy="0 0 0" />
+      <mass
+        value="2.2786" />
+      <inertia
+        ixx="0.0063629"
+        ixy="1.6432E-07"
+        ixz="-1.3884E-07"
+        iyy="0.010465"
+        iyz="3.7542E-07"
+        izz="0.0063625" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/wheel_rf_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/wheel_rf_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_rf_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0019371 -0.054069 -0.1268"
+      rpy="0 0 0" />
+    <parent
+      link="rf_Link" />
+    <child
+      link="wheel_rf_Link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="lb_Link">
+    <inertial>
+      <origin
+        xyz="0.0142 -0.058693 -0.060479"
+        rpy="0 0 0" />
+      <mass
+        value="0.24759" />
+      <inertia
+        ixx="0.00020993"
+        ixy="6.2337E-06"
+        ixz="-1.4517E-05"
+        iyy="0.00016172"
+        iyz="-5.8459E-06"
+        izz="0.0001734" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/lb_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/lb_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lb_joint"
+    type="revolute">
+    <origin
+      xyz="-0.24701 0.18204 0.12"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lb_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="1000"
+      velocity="1" />
+  </joint>
+  <link
+    name="wheel_lb_Link">
+    <inertial>
+      <origin
+        xyz="9.3868E-07 -0.050321 -2.1352E-06"
+        rpy="0 0 0" />
+      <mass
+        value="2.2786" />
+      <inertia
+        ixx="0.0063629"
+        ixy="1.6432E-07"
+        ixz="1.3884E-07"
+        iyy="0.010465"
+        iyz="-3.7542E-07"
+        izz="0.0063625" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/wheel_lb_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/wheel_lb_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_lb_joint"
+    type="continuous">
+    <origin
+      xyz="0.0019489 0.053998 -0.1268"
+      rpy="0 0 0" />
+    <parent
+      link="lb_Link" />
+    <child
+      link="wheel_lb_Link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="rb_Link">
+    <inertial>
+      <origin
+        xyz="0.014239 0.059139 -0.061218"
+        rpy="0 0 0" />
+      <mass
+        value="0.24676" />
+      <inertia
+        ixx="0.00021007"
+        ixy="-6.2343E-06"
+        ixz="-1.4453E-05"
+        iyy="0.00016189"
+        iyz="5.8466E-06"
+        izz="0.00017343" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/rb_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/rb_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rb_joint"
+    type="revolute">
+    <origin
+      xyz="-0.247 -0.18196 0.12"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rb_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="1000"
+      velocity="1" />
+  </joint>
+  <link
+    name="wheel_rb_Link">
+    <inertial>
+      <origin
+        xyz="9.2845E-07 0.050321 -2.1397E-06"
+        rpy="0 0 0" />
+      <mass
+        value="2.2786" />
+      <inertia
+        ixx="0.0063629"
+        ixy="-1.6134E-07"
+        ixz="2.2395E-07"
+        iyy="0.010465"
+        iyz="3.6995E-07"
+        izz="0.0063626" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/wheel_rb_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wmr_gazebo/meshes/wheel_rb_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_rb_joint"
+    type="continuous">
+    <origin
+      xyz="0.0019415 -0.054075 -0.1268"
+      rpy="0 0 0" />
+    <parent
+      link="rb_Link" />
+    <child
+      link="wheel_rb_Link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+    
+
+</robot>

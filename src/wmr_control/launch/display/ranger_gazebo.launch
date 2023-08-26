@@ -1,0 +1,41 @@
+<launch>
+
+    <arg name="x_pos" default="-10.0" />
+    <arg name="y_pos" default="0.0" />
+    <arg name="z_pos" default="6.0" />
+    <arg name="world_name" value="$(find wmr_gazebo)/worlds/terrain.world" />
+
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_name)" />
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    </include>
+
+
+    <param name="robot_description" command ="$(find xacro)/xacro $(find wmr_gazebo)/urdf/xacro/ranger.xacro" />
+
+    <node name="tf_footprint_base" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 base_link base_footprint 40" />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+    
+    <node name="spawn_turtlebot_model" pkg="gazebo_ros" type="spawn_model"
+             args="-urdf -model ranger -param robot_description -model mobile_base -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)"/>
+
+    <node pkg="wmr_control" type="gazebo_odometry.py" name="gazebo_odometry" />
+    <!-- <node pkg="wmr_control" type="cmd_node" name="cmd_node" /> -->
+    <node pkg="wmr_control" type="ranger_control" name="ranger_control" />
+
+   <rosparam file="$(find wmr_gazebo)/config/ranger_ctrl.yaml" command="load" />     
+   <node name="controller_manager" pkg="controller_manager" type="spawner"
+                    respawn="false" output="screen" ns="/ranger"
+                    args="      wheel_lf_velocity_controller    wheel_rf_velocity_controller
+                                wheel_lb_velocity_controller    wheel_rb_velocity_controller
+                                lf_position_controller          lb_position_controller
+                                rf_position_controller          rb_position_controller" />
+   
+</launch>

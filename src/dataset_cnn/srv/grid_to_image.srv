@@ -1,0 +1,7 @@
+# grid map
+grid_map_msgs/GridMap map
+
+---
+
+# flag
+bool flag

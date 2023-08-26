@@ -1,0 +1,19 @@
+<launch>
+    <!-- <rosparam command="load" file="$(find grid_map_demos)/config/cnn_data_set.yaml" /> -->
+
+  <!-- Load the image. -->
+    <!-- <node pkg="grid_map_demos" type="image_publisher.py" name="image_publisher" output="screen">
+        <param name="image_path" value="$(find dataset_cnn)/image/heightmap.png" />
+        <param name="topic" value="~image" />
+    </node> -->
+    
+    <!-- <node pkg="dataset_cnn" type="traver_train" name="traver_train" /> -->
+
+    <node pkg="wmr_control" type="robot_motion_service" name="robot_motion_service" />
+
+    <!-- <node pkg="dataset_cnn" type="gridMap_to_image_server" name="gridMap_to_image_server" /> -->
+
+
+    <!-- <node pkg="grid_map_visualization" type="grid_map_visualization" name="grid_map_visualization" output="screen" /> -->
+
+</launch>

@@ -1,0 +1,13 @@
+# map
+grid_map_msgs/GridMap map
+# index
+int32 index_1
+int32 index_2
+
+int32 window
+
+float64 resolution
+
+---
+
+bool flag

@@ -1,0 +1,6 @@
+<launch>
+    <include file="$(find wmr_control)/launch/display/ranger_gazebo.launch">
+    </include>
+    <node pkg="wmr_control" type="IMU_node" name="IMU_node" />
+
+</launch>

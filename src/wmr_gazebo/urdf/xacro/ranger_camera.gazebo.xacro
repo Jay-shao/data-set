@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<robot name="ranger" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <!-- 相机显示颜色设置 -->
+    <gazebo reference="zed_Link">
+        <material>Gazebo/Gray</material>
+    </gazebo>
+    
+    <gazebo reference="left_Link">
+        <material>Gazebo/Gray</material>
+    </gazebo>
+    <gazebo reference="right_Link">
+        <material>Gazebo/Gray</material>
+    </gazebo>
+
+    <!-- 参数化设置 -->
+    <xacro:property name="baseline" value="0.12"/>
+    <xacro:property name="hfov" value="92.329636758468765228252815135916"/>
+    <xacro:property name="M_PI" value="3.1415926535897931"/>
+
+    <!-- 加载相关文件 -->
+    <xacro:include filename="$(find wmr_gazebo)/urdf/xacro/camera.gazebo.xacro"/>
+
+    <!-- 相机left光心关节 -->
+    <joint name="zed_left_optical_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}"/>
+            <parent link="left_Link"/>
+            <child link="zed_left_optical_frame"/>
+    </joint>
+
+    <link name="zed_left_optical_frame"/>
+
+    <xacro:rgb_gazebo reference="left_Link" name="left_camera" image_width="2208"
+                          image_height="1242" hz="20" image_format="B8G8R8"
+                          frame_id="zed_left_optical_frame" hfov="${hfov}"
+                          focal_length="0" noise="0.0">
+    </xacro:rgb_gazebo>
+
+    <xacro:depth_gazebo reference="left_Link" name="left_camera" image_width="2208"
+                          image_height="1242" hz="20" image_format="R8G8B8"
+                          frame_id="zed_left_optical_frame" hfov="${hfov}"
+                          focal_length="0">
+    </xacro:depth_gazebo>
+      
+
+    <!-- 相机right光心关节 -->
+    <joint name="zed_right_optical_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}"/>
+            <parent link="right_Link"/>
+            <child link="zed_right_optical_frame"/>
+    </joint>
+
+    <link name="zed_right_optical_frame"/>
+
+    <xacro:rgb_gazebo reference="right_Link" name="right_camera" image_width="2208"
+                          image_height="1242" hz="20" image_format="B8G8R8"
+                          frame_id="zed_right_optical_frame" hfov="${hfov}"
+                          focal_length="0" noise="0.0">
+    </xacro:rgb_gazebo>
+
+    <xacro:depth_gazebo reference="right_Link" name="right_camera" image_width="2208"
+                          image_height="1242" hz="20" image_format="R8G8B8"
+                          frame_id="zed_right_optical_frame" hfov="${hfov}"
+                          focal_length="0">
+    </xacro:depth_gazebo>
+
+</robot>

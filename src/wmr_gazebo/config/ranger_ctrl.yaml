@@ -1,0 +1,50 @@
+ranger:
+  #Publish all joint states
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  #Velocity Controllers
+  wheel_lf_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_lf_joint
+    pid: {p: 10.0, i: 0.0, d: 0.5, i_clamp: 0.0}
+  wheel_rf_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_rf_joint
+    pid: {p: 10.0, i: 0.0, d: 0.5, i_clamp: 0.0}
+  wheel_lb_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_lb_joint
+    pid: {p: 10.0, i: 0.0, d: 0.5, i_clamp: 0.0}
+  wheel_rb_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_rb_joint
+    pid: {p: 10.0, i: 0.0, d: 0.5, i_clamp: 0.0}
+  
+  # gazebo_ros_control:
+  #   pid_gains:
+  #     wheel_lf_joint: {p: 10.0, i: 0.0, d: 0.5, i_clamp: 0.0}
+  #     wheel_rf_joint: {p: 10.0, i: 0.0, d: 0.5, i_clamp: 0.0}
+  #     wheel_lb_joint: {p: 10.0, i: 0.0, d: 0.5, i_clamp: 0.0}
+  #     wheel_rb_joint: {p: 10.0, i: 0.0, d: 0.5, i_clamp: 0.0}
+
+  # Position Controllers
+  lf_position_controller:
+    joint: lf_joint
+    type: effort_controllers/JointPositionController
+    pid: {p: 10.0, i: 0.0, d: 0.5}
+  rf_position_controller:
+    joint: rf_joint
+    type: effort_controllers/JointPositionController
+    pid: {p: 10.0, i: 0.0, d: 0.5}
+  lb_position_controller:
+    joint: lb_joint
+    type: effort_controllers/JointPositionController
+    pid: {p: 10.0, i: 0.0, d: 0.5}
+  rb_position_controller:
+    joint: rb_joint
+    type: effort_controllers/JointPositionController
+    pid: {p: 10.0, i: 0.0, d: 0.5}
+  
+  

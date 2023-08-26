@@ -1,0 +1,11 @@
+#robot motion mode id (0,1,2),0 is robot motion stop, 1 is random velocity, 2 is robot rotation
+int32 motionModeID
+float64 linear_x
+
+#robot rotation target angle
+#float64 targetAngle
+
+
+---
+#robot motion state successful flag
+bool flag
